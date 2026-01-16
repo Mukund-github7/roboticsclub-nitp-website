@@ -22,13 +22,23 @@ const staggerContainer = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="flex flex-col min-h-screen bg-slate-950">
       
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
-        {/* Background Decorative Grid */}
+        
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80"
+            alt="Circuit Background"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950"></div>
+        </div>
+
+        {/* Decorative Grid Overlay */}
         <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_200px,#020617,transparent)]"></div>
 
         <motion.div 
           className="relative z-10 max-w-4xl mx-auto text-center"
@@ -80,7 +90,7 @@ export default function Home() {
       </section>
 
       {/* --- CLUB HIGHLIGHTS --- */}
-      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto w-full">
+      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto w-full relative z-10">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -127,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* --- EVENT BANNER --- */}
-      <section className="w-full bg-cyan-950/30 border-y border-cyan-900/50 py-4">
+      <section className="w-full bg-cyan-950/30 border-y border-cyan-900/50 py-4 relative z-10">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Calendar className="w-5 h-5 text-cyan-400 animate-pulse" />
@@ -141,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* --- RECENT ACHIEVEMENT --- */}
-      <section className="py-20 bg-slate-950">
+      <section className="py-20 bg-slate-950 relative z-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 mb-6 text-orange-500 font-semibold tracking-wide uppercase text-sm">
             <Award className="w-4 h-4" /> Recent Glory
@@ -153,23 +163,18 @@ export default function Home() {
           <div className="glass-panel p-1 rounded-2xl">
             <div className="bg-slate-900/80 rounded-xl p-8 md:p-12 border border-slate-800 flex flex-col md:flex-row items-center gap-8">
               <div className="w-full md:w-1/3">
-                 {/* Placeholder for Winner Image */}
                  <div className="aspect-video w-full bg-slate-800 rounded-lg overflow-hidden relative group">
-                    <div className="absolute inset-0 flex items-center justify-center text-slate-500 text-xs">
-                        [Winner Team Photo]
-                    </div>
-                    {/* In production, use next/image here */}
                     <img 
-                        src="https://source.unsplash.com/random/800x600/?robotics,trophy" 
+                        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80" 
                         alt="Winning Team" 
-                        className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity"
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                     />
                  </div>
               </div>
               <div className="w-full md:w-2/3 text-left">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-2">Winners of Smart India Hackathon 2025</h3>
                 <p className="text-slate-300 mb-6 leading-relaxed">
-                    Our team "RoboCrafters" secured the 1st runner-up position in the Hardware Edition, developing an autonomous disaster recovery rover.
+                    Our team "RoboCrafters" secured the 1st runner-up position in the Hardware Edition, developing an autonomous disaster recovery rover using ROS 2 and Lidar technology.
                 </p>
                 <Link href="/achievements" className="text-sm font-bold text-orange-500 hover:text-orange-400 underline decoration-2 underline-offset-4">
                     Read the Full Story

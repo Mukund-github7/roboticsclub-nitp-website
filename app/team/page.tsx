@@ -3,20 +3,20 @@
 import { motion } from "framer-motion";
 import { Linkedin, Github, Quote, Cpu, Code2 } from "lucide-react";
 
-// --- MOCK DATA ---
+// --- SPECIFIC IMAGE DATA ---
 const faculty = {
   name: "Dr. Arvind Kumar",
-  role: "Faculty Advisor",
-  image: "https://source.unsplash.com/random/400x400/?professor,man",
+  role: "Prof Incharge",
+  image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80", // Professional Man
   quote: "Innovation distinguishes between a leader and a follower. Our club is the breeding ground for the leaders of tomorrow's tech landscape."
 };
 
 const coreTeam = [
   {
     id: 1,
-    name: "Rohan Das",
+    name: "Darshan Jain",
     role: "President",
-    image: "https://source.unsplash.com/random/400x400/?man,professional",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80", // Male Portrait
     linkedin: "#",
     github: "#"
   },
@@ -24,7 +24,7 @@ const coreTeam = [
     id: 2,
     name: "Priya Sharma",
     role: "Vice President",
-    image: "https://source.unsplash.com/random/400x400/?woman,professional",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80", // Female Professional
     linkedin: "#",
     github: "#"
   },
@@ -32,7 +32,7 @@ const coreTeam = [
     id: 3,
     name: "Vikram Singh",
     role: "Technical Lead",
-    image: "https://source.unsplash.com/random/400x400/?coder,man",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80", // Male Professional
     linkedin: "#",
     github: "#"
   },
@@ -40,7 +40,7 @@ const coreTeam = [
     id: 4,
     name: "Neha Gupta",
     role: "Event Manager",
-    image: "https://source.unsplash.com/random/400x400/?manager,woman",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80", // Female Portrait
     linkedin: "#",
     github: "#"
   },
@@ -48,7 +48,7 @@ const coreTeam = [
     id: 5,
     name: "Arjun Reddy",
     role: "Hardware Lead",
-    image: "https://source.unsplash.com/random/400x400/?engineer,man",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80", // Male Portrait
     linkedin: "#",
     github: "#"
   },
@@ -56,7 +56,7 @@ const coreTeam = [
     id: 6,
     name: "Sanya Patel",
     role: "Creative Head",
-    image: "https://source.unsplash.com/random/400x400/?designer,woman",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D0", // Female Portrait
     linkedin: "#",
     github: "#"
   }
@@ -94,7 +94,6 @@ export default function Team() {
         className="max-w-4xl mx-auto mb-20"
       >
         <div className="relative glass-panel p-8 rounded-2xl border-t border-cyan-500/30 flex flex-col md:flex-row items-center gap-8">
-          {/* Decorative Glow */}
           <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl blur opacity-20 pointer-events-none"></div>
           
           <div className="relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
@@ -128,7 +127,6 @@ export default function Team() {
               variants={fadeInUp}
               className="group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300"
             >
-              {/* Image Container with Overlay */}
               <div className="h-64 overflow-hidden relative">
                 <img 
                   src={member.image} 
@@ -136,7 +134,6 @@ export default function Team() {
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
                 
-                {/* Social Overlay */}
                 <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                   <a href={member.linkedin} className="p-3 bg-slate-800 rounded-full hover:bg-cyan-600 hover:text-white text-cyan-400 transition-colors">
                     <Linkedin className="w-6 h-6" />
@@ -147,7 +144,6 @@ export default function Team() {
                 </div>
               </div>
 
-              {/* Info */}
               <div className="p-4 text-center relative z-10 bg-slate-900">
                 <h3 className="text-lg font-bold text-slate-100">{member.name}</h3>
                 <p className="text-sm text-cyan-500 font-medium">{member.role}</p>
@@ -161,7 +157,6 @@ export default function Team() {
       <section className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           
-          {/* Hardware Team */}
           <div className="glass-panel p-6 rounded-xl">
             <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
               <Cpu className="w-6 h-6 text-orange-500" />
@@ -177,7 +172,6 @@ export default function Team() {
             </ul>
           </div>
 
-          {/* Software Team */}
           <div className="glass-panel p-6 rounded-xl">
             <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
               <Code2 className="w-6 h-6 text-cyan-500" />

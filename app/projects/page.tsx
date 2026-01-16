@@ -4,13 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code, Layers, Cpu, Radio, Zap, Eye } from "lucide-react";
 
-// --- MOCK DATA ---
+// --- SPECIFIC IMAGE DATA ---
 const allProjects = [
   {
     id: 1,
     title: "Sentinel AI Sentry",
     category: "AI",
-    image: "https://source.unsplash.com/random/800x600/?robot,ai",
+    image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&q=80", // Robot Eye
     description: "An autonomous surveillance system capable of detecting unauthorized personnel using computer vision and edge computing.",
     techStack: ["Python", "OpenCV", "Raspberry Pi", "TensorFlow"],
     icon: <Eye className="w-5 h-5" />
@@ -19,7 +19,7 @@ const allProjects = [
     id: 2,
     title: "Agri-Drone V2",
     category: "Drone",
-    image: "https://source.unsplash.com/random/800x600/?drone,field",
+    image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&q=80", // Drone in field
     description: "A quadcopter designed for precision agriculture, featuring multispectral imaging for crop health analysis.",
     techStack: ["C++", "ArduPilot", "Pixhawk", "LoRaWAN"],
     icon: <Zap className="w-5 h-5" />
@@ -28,7 +28,7 @@ const allProjects = [
     id: 3,
     title: "Smart Campus Grid",
     category: "IoT",
-    image: "https://source.unsplash.com/random/800x600/?smartcity,iot",
+    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80", // Smart Grid/Network
     description: "A network of IoT sensors deployed across NIT Patna to monitor energy consumption and environmental quality in real-time.",
     techStack: ["ESP32", "MQTT", "Node-RED", "React"],
     icon: <Radio className="w-5 h-5" />
@@ -37,7 +37,7 @@ const allProjects = [
     id: 4,
     title: "Neuro-Arm Prosthetic",
     category: "AI",
-    image: "https://source.unsplash.com/random/800x600/?prosthetic,robotic",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80", // Robotic Arm
     description: "Low-cost 3D printed prosthetic arm controlled via EMG signals and machine learning pattern recognition.",
     techStack: ["Arduino", "Python", "Scikit-learn", "3D Printing"],
     icon: <Cpu className="w-5 h-5" />
@@ -46,7 +46,7 @@ const allProjects = [
     id: 5,
     title: "Swarm Bot Alpha",
     category: "Drone",
-    image: "https://source.unsplash.com/random/800x600/?swarm,robots",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80", // Robot Face
     description: "Experimental swarm robotics framework testing decentralized communication and formation control algorithms.",
     techStack: ["ROS 2", "Python", "Gazebo", "Zigbee"],
     icon: <Layers className="w-5 h-5" />
@@ -55,7 +55,7 @@ const allProjects = [
     id: 6,
     title: "Auto-Bin 3000",
     category: "IoT",
-    image: "https://source.unsplash.com/random/800x600/?automation,trash",
+    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80", // Industrial Automation
     description: "Smart waste management system that segregates waste automatically using image recognition and inductive sensors.",
     techStack: ["YOLOv8", "Jetson Nano", "Servo Motors", "Firebase"],
     icon: <Code className="w-5 h-5" />
@@ -67,7 +67,6 @@ const categories = ["All", "AI", "Drone", "IoT"];
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  // Filter Logic
   const filteredProjects = activeCategory === "All" 
     ? allProjects 
     : allProjects.filter(project => project.category === activeCategory);
@@ -83,7 +82,6 @@ export default function Projects() {
             <p className="text-slate-400">Innovation in action at the Digital Lab.</p>
           </div>
 
-          {/* Filter Buttons */}
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((cat) => (
               <button
@@ -117,7 +115,6 @@ export default function Projects() {
                 key={project.id}
                 className="group relative bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-cyan-500/50 hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(6,182,212,0.15)] transition-all duration-300"
               >
-                {/* Image Section */}
                 <div className="h-48 overflow-hidden relative">
                   <div className="absolute top-2 right-2 z-10 bg-slate-950/80 backdrop-blur-sm p-2 rounded-lg border border-slate-800 text-cyan-400">
                     {project.icon}
@@ -130,7 +127,6 @@ export default function Projects() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80" />
                 </div>
 
-                {/* Content Section */}
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
                     <span className="text-xs font-bold text-orange-500 uppercase tracking-wider">{project.category}</span>
@@ -142,7 +138,6 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  {/* Tech Stack Badges */}
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {project.techStack.map((tech) => (
                       <span 
